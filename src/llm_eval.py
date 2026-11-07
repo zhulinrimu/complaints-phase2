@@ -2,11 +2,14 @@
 """LLM sub-task: evaluation harness, prompt/config versioning, groundedness,
 output-variability analysis and prompt-injection tests.
 
-This module is the Phase-2 response to the Phase-1 feedback "the use of large
-models has plenty of room to grow; our work does not reflect it".  Phase 1 only
-used an assistant to help write code; here the LLM is a *first-class evaluated
-method* with a frozen eval frame, a versioned prompt, a JSON schema, evidence
-grounding, abstention, repeated-run variability and adversarial tests.
+This module adds an LLM-as-evaluated-method experiment to the Phase-2 baseline
+suite.  Phase 1 used assistants for writing/code help and for topic-selection
+and Git guidance (documented in the revised Phase-1 report, section 10); here
+the LLM is a *first-class evaluated method* with a frozen eval frame, a
+versioned prompt, a JSON schema, evidence grounding, abstention, repeated-run
+variability and adversarial tests.  This is Phase-2 experimental work and is
+recorded separately from the team's written reply to the Phase-1 feedback
+(see gti_phase2_report.pdf, section 2).
 
 THREE BACKENDS, all honest about what they are:
     mock   deterministic stand-in used ONLY to self-test the harness.  Its
