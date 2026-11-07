@@ -1,0 +1,60 @@
+{
+  "seed": 20261107,
+  "sample_file": "data/derived/narrative_sample.csv.gz",
+  "eligible_records": 40000,
+  "eligibility": "non-empty narrative, non-empty Issue, parseable Date received",
+  "split_type": "temporal, whole calendar days kept inside one fold",
+  "cut_date_train_val": "2025-01-27",
+  "cut_date_val_test": "2025-07-11",
+  "forbidden_practices": [
+    "row-index splitting on the raw CSV",
+    "fitting vocabulary / encoders / priors before splitting",
+    "using the test fold for model or prompt selection"
+  ],
+  "folds": {
+    "train": {
+      "n": 27977,
+      "date_min": "2015-03-19",
+      "date_max": "2025-01-26",
+      "distinct_issues": 144,
+      "distinct_companies": 1298,
+      "narrative_rate_in_source_frame": 1.0,
+      "ids_sha256": "ca55b07a8961158ea22234528be3f3fcab95f3e7fc29f3e006f786fa94195c96",
+      "ids_file": "data/splits/train_ids.txt"
+    },
+    "val": {
+      "n": 6022,
+      "date_min": "2025-01-27",
+      "date_max": "2025-07-10",
+      "distinct_issues": 65,
+      "distinct_companies": 340,
+      "narrative_rate_in_source_frame": 1.0,
+      "ids_sha256": "d5627bba3f253040beae6064533265aa16fe43444bdc615008d2322fa90691ae",
+      "ids_file": "data/splits/val_ids.txt"
+    },
+    "test": {
+      "n": 6001,
+      "date_min": "2025-07-11",
+      "date_max": "2026-06-12",
+      "distinct_issues": 73,
+      "distinct_companies": 433,
+      "narrative_rate_in_source_frame": 1.0,
+      "ids_sha256": "18ebd9ca2dc2dda2cbb56a564d71d9b2d52e90522a196f9007415725900a0a44",
+      "ids_file": "data/splits/test_ids.txt"
+    }
+  },
+  "company_overlap": {
+    "test_companies": 433,
+    "test_companies_also_in_train": 326,
+    "fraction": 0.752887,
+    "interpretation": "large national bureaus appear in every period; group-by-company splitting would break temporal realism, so overlap is measured and reported instead"
+  },
+  "llm_eval": {
+    "n": 400,
+    "frame": "stratified sample of the TEST fold, Issue-stratified",
+    "ids_sha256": "8618b4743a126e90867d9bdfb92abb2810e0155bce8e2c2d2723db8fa315c09c",
+    "ids_file": "data/splits/llm_eval_ids.txt",
+    "label_coverage": 73,
+    "rule": "eval IDs are excluded from few-shot examples and prompt authoring"
+  }
+}

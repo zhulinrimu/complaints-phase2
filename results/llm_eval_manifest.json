@@ -1,0 +1,8 @@
+{
+  "n": 400,
+  "frame": "stratified sample of the TEST fold, Issue-stratified",
+  "ids_sha256": "8618b4743a126e90867d9bdfb92abb2810e0155bce8e2c2d2723db8fa315c09c",
+  "ids_file": "data/splits/llm_eval_ids.txt",
+  "label_coverage": 73,
+  "rule": "eval IDs are excluded from few-shot examples and prompt authoring"
+}

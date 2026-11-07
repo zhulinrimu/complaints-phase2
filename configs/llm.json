@@ -1,0 +1,20 @@
+{
+  "provider": "openai-compatible",
+  "base_url": "https://api.openai.com/v1",
+  "model": "gpt-4o-mini",
+  "model_version": "PIN_EXACT_SNAPSHOT_AFTER_AUTHORISATION",
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "max_tokens": 300,
+  "seed": 20261107,
+  "repeats": 3,
+  "timeout_s": 60,
+  "max_eval_records": 400,
+  "budget_usd": 5.0,
+  "allow_external_transmission": false,
+  "redaction_required": true,
+  "prompt_file": "prompts/v1.txt",
+  "output_schema": ["issue_label", "evidence_quote", "confidence", "abstain"],
+  "authorisation_note": "Live calls require (1) team approval to transmit redacted complaint text to a third party, (2) this flag set to true, (3) LLM_API_KEY in the environment, and (4) an exact model version pinned in model_version. Until then only mock (harness self-test) and cache (replay) backends are used.",
+  "cost_policy": "Hard stop when accumulated spend reaches budget_usd; token counts are logged per record in results/llm_costs.csv"
+}

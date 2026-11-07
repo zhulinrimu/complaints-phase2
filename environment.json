@@ -1,0 +1,35 @@
+{
+  "generated_at_utc": "2026-11-07T10:37:47Z",
+  "python": "3.13.14 (main, Jun 11 2026, 04:04:46) [MSC v.1944 64 bit (AMD64)]",
+  "implementation": "CPython",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "machine": "AMD64",
+  "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+  "cpu_count": 16,
+  "packages": {
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.4",
+    "pytest": "9.2.0"
+  },
+  "core_pipeline_dependencies": "Python standard library only",
+  "seed": 20261107,
+  "full_profile_run": {
+    "script": "src/profile_full.py",
+    "generated_at_utc": "2026-11-07T10:36:48Z",
+    "seed": 20261107,
+    "seed_usage": "reservoir sampling of narrative-bearing records",
+    "limit": null,
+    "is_full_file": true,
+    "elapsed_seconds": 580.84,
+    "peak_working_set_bytes": 168443904,
+    "python": "3.13.14",
+    "dependencies": "Python standard library only for the data path"
+  },
+  "commands": [
+    "python -m pip install -r requirements.txt",
+    "python src/run_all.py --source <complaints.csv.zip> --root .",
+    "python -m pytest -q",
+    "python src/make_figures.py --root .",
+    "python src/llm_eval.py --root . --backend mock --limit 20"
+  ]
+}

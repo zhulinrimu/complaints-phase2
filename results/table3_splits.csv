@@ -1,0 +1,4 @@
+fold,n,share,date_min,date_max,distinct_issues,ids_sha256_prefix
+train,27977,0.6994,2015-03-19,2025-01-26,144,ca55b07a8961158e
+val,6022,0.1505,2025-01-27,2025-07-10,65,d5627bba3f253040
+test,6001,0.15,2025-07-11,2026-06-12,73,18ebd9ca2dc2dda2

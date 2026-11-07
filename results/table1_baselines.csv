@@ -1,0 +1,5 @@
+baseline,definition,macro_f1,macro_f1_ci95,balanced_accuracy,accuracy,wall_seconds,peak_working_set_mb,notes
+B0,majority class,0.010094,"[0.009869, 0.010544]",0.019608,0.346609,0.0,117.7,"n_test=6001, boot=500"
+B1,Product->Issue prior,0.093778,"[0.088884, 0.099962]",0.163208,0.471088,0.003,117.7,"n_test=6001, boot=500"
+B2,bag-of-words Naive Bayes,0.155597,"[0.140881, 0.172674]",0.165756,0.390602,19.931,139.4,"n_test=6001, boot=500"
+B3,LLM (frozen eval set),NOT RUN,NOT RUN,NOT RUN,NOT RUN,-,-,awaiting API authorisation

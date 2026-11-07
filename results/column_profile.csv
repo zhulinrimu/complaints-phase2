@@ -1,0 +1,17 @@
+field,index,missing,missing_rate,distinct,top5
+Date received,0,0,0.0,,
+Product,1,121,7e-06,23,"Credit reporting or other personal consumer reports=11065058; Credit reporting, credit repair services, or other personal consumer reports=2163773; Debt collection=1162407; Mortgage=455102; Checking or savings account=381725"
+Sub-product,2,235415,0.014228,87,Credit reporting=13164277; I do not know=471226; General-purpose credit card or charge card=371861; Checking account=368254; Other debt=195611
+Issue,3,151,9e-06,180,Incorrect information on your report=7329427; Improper use of your report=3190803; Problem with a company's investigation into an existing problem=2070772; Problem with a credit reporting company's investigation into an existing problem=589318; Attempts to collect debt not owed=465028
+Sub-issue,4,923106,0.055792,273,Information belongs to someone else=4789764; Reporting company used your report improperly=2365377; Their investigation did not fix an error on your report=1460158; Account information incorrect=1241868; Investigation took more than 30 days=873284
+Consumer complaint narrative,5,12730795,0.769447,,
+Company public response,6,7706704,0.465792,11,Company has responded to the consumer and the CFPB and chooses not to provide a public response=8482503; Company believes it acted appropriately as authorized by contract or law=234716; Company chooses not to provide a public response=52473; Company disputes the facts presented in the complaint=16792; Company believes the complaint is the result of a misunderstanding=14392
+Company,7,0,0.0,8037,"TRANSUNION INTERMEDIATE HOLDINGS, INC.=4429776; EQUIFAX, INC.=4349398; Experian Information Solutions Inc.=3948159; BANK OF AMERICA, NATIONAL ASSOCIATION=182548; JPMORGAN CHASE & CO.=171437"
+State,8,62097,0.003753,63,FL=2261339; TX=2251618; CA=1649238; GA=1222083; NY=965780
+ZIP code,9,1612,9.7e-05,,
+Tags,10,15765213,0.952847,3,"Servicemember=496276; Older American=226441; Older American, Servicemember=57446"
+Submitted via,11,0,0.0,6,Web=15913020; Referral=277047; Phone=218731; Postal mail=110491; Fax=25644
+Date sent to company,12,56922,0.00344,,
+Company response to consumer,13,274577,0.016595,8,Closed with explanation=9922403; Closed with non-monetary relief=5483473; In progress=582672; Closed with monetary relief=211193; Untimely response=30276
+Timely response?,14,0,0.0,2,Yes=16442371; No=103005
+Complaint ID,15,2390,0.000144,,

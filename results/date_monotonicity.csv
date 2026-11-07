@@ -1,0 +1,8 @@
+metric,value
+first_logical_row_date,2024-01-25
+last_logical_row_date,2023-03-11
+adjacent_date_descents,683502
+descent_rate,0.041311
+product_runs,4590795
+mean_rows_per_product_run,3.6
+interpretation,non-zero adjacent date descents + a dominant product in the head block => file is NOT chronological and the head is not representative; row-index splitting is invalid

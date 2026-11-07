@@ -1,0 +1,1465 @@
+{
+  "label_policy": {
+    "min_support": 20,
+    "kept_classes": 71,
+    "collapsed_classes": 73,
+    "collapsed_records": 493,
+    "collapsed_to": "__OTHER__",
+    "reason": "macro-F1 over dozens of classes with <20 training examples is dominated by noise; rare classes are reported as one bucket"
+  },
+  "baselines": {
+    "B0": {
+      "macro_f1": 0.010094,
+      "macro_f1_ci95": [
+        0.009869,
+        0.010544
+      ],
+      "balanced_accuracy": 0.019608,
+      "accuracy": 0.346609,
+      "n_test": 6001,
+      "n_boot": 500,
+      "wall_seconds": 0.0,
+      "peak_working_set_mb": 117.7
+    },
+    "B1": {
+      "macro_f1": 0.093778,
+      "macro_f1_ci95": [
+        0.088884,
+        0.099962
+      ],
+      "balanced_accuracy": 0.163208,
+      "accuracy": 0.471088,
+      "n_test": 6001,
+      "n_boot": 500,
+      "wall_seconds": 0.003,
+      "peak_working_set_mb": 117.7
+    },
+    "B2": {
+      "macro_f1": 0.155597,
+      "macro_f1_ci95": [
+        0.140881,
+        0.172674
+      ],
+      "balanced_accuracy": 0.165756,
+      "accuracy": 0.390602,
+      "n_test": 6001,
+      "n_boot": 500,
+      "wall_seconds": 19.931,
+      "peak_working_set_mb": 139.4
+    },
+    "B3": {
+      "status": "NOT_RUN",
+      "reason": "no authorised LLM endpoint / API key; external transmission of complaint narratives requires explicit team approval",
+      "implementation": "src/llm_eval.py",
+      "procedure": "run `python src/llm_eval.py --backend api` after configuring configs/llm.json and LLM_API_KEY; the same frozen eval IDs, prompt and metrics are then applied"
+    }
+  },
+  "per_class": {
+    "B0": {
+      "Advertising and marketing, including promotional offers": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 22,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 22
+      },
+      "Applying for a mortgage or refinancing an existing mortgage": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 13,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 13
+      },
+      "Attempts to collect debt not owed": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 378,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 378
+      },
+      "Charged fees or interest you didn't expect": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 15,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 15
+      },
+      "Closing an account": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 56,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 56
+      },
+      "Closing on a mortgage": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 18,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 18
+      },
+      "Closing your account": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 21,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 21
+      },
+      "Communication tactics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 33,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 33
+      },
+      "Confusing or missing disclosures": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 10,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 10
+      },
+      "Credit monitoring or identity theft protection services": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 12,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 12
+      },
+      "Dealing with your lender or servicer": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 35,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 35
+      },
+      "False statements or representation": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 110,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 110
+      },
+      "Fees or interest": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 35,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 35
+      },
+      "Fraud or scam": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 42,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 42
+      },
+      "Getting a credit card": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 36,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 36
+      },
+      "Getting a line of credit": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "Getting a loan or lease": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 14,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 14
+      },
+      "Improper use of your report": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1192,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1192
+      },
+      "Incorrect information on your report": {
+        "tp": 2080,
+        "fp": 3921,
+        "fn": 0,
+        "precision": 0.346609,
+        "recall": 1.0,
+        "f1": 0.514788,
+        "support": 2080
+      },
+      "Managing an account": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 188,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 188
+      },
+      "Managing the loan or lease": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 23,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 23
+      },
+      "Managing, opening, or closing your mobile wallet account": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 9,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 9
+      },
+      "Money was not available when promised": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 13,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 13
+      },
+      "Opening an account": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 28,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 28
+      },
+      "Other features, terms, or problems": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 44,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 44
+      },
+      "Other service problem": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "Other transaction problem": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 28,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 28
+      },
+      "Problem caused by your funds being low": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 28,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 28
+      },
+      "Problem getting a card or closing an account": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3
+      },
+      "Problem when making payments": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 30,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 30
+      },
+      "Problem with a company's investigation into an existing issue": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4
+      },
+      "Problem with a company's investigation into an existing problem": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 627,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 627
+      },
+      "Problem with a lender or other company charging your account": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 71,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 71
+      },
+      "Problem with a purchase or transfer": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 9,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 9
+      },
+      "Problem with a purchase shown on your statement": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 128,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 128
+      },
+      "Problem with fraud alerts or security freezes": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 20,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 20
+      },
+      "Problem with the payoff process at the end of the loan": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 6,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 6
+      },
+      "Problems at the end of the loan or lease": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 11,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 11
+      },
+      "Struggling to pay mortgage": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 30,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 30
+      },
+      "Struggling to pay your loan": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 11,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 11
+      },
+      "Struggling to repay your loan": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 20,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 20
+      },
+      "Threatened to contact someone or share information improperly": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 8,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 8
+      },
+      "Took or threatened to take negative or legal action": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 77,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 77
+      },
+      "Trouble during payment process": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 82,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 82
+      },
+      "Trouble using the card": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 14,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 14
+      },
+      "Trouble using your card": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 17,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 17
+      },
+      "Unable to get your credit report or credit score": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 15,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 15
+      },
+      "Unauthorized transactions or other transaction problem": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 32,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 32
+      },
+      "Unexpected or other fees": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 12,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 12
+      },
+      "Written notification about debt": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 163,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 163
+      },
+      "__OTHER__": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 122,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 122
+      }
+    },
+    "B1": {
+      "Advertising and marketing, including promotional offers": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 22,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 22
+      },
+      "Applying for a mortgage or refinancing an existing mortgage": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 13,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 13
+      },
+      "Attempts to collect debt not owed": {
+        "tp": 378,
+        "fp": 408,
+        "fn": 0,
+        "precision": 0.480916,
+        "recall": 1.0,
+        "f1": 0.649485,
+        "support": 378
+      },
+      "Charged fees or interest you didn't expect": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 15,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 15
+      },
+      "Closing an account": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 56,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 56
+      },
+      "Closing on a mortgage": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 18,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 18
+      },
+      "Closing your account": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 21,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 21
+      },
+      "Communication tactics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 33,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 33
+      },
+      "Confusing or missing disclosures": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 10,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 10
+      },
+      "Credit monitoring or identity theft protection services": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 12,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 12
+      },
+      "Dealing with your lender or servicer": {
+        "tp": 35,
+        "fp": 36,
+        "fn": 0,
+        "precision": 0.492958,
+        "recall": 1.0,
+        "f1": 0.660377,
+        "support": 35
+      },
+      "False statements or representation": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 110,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 110
+      },
+      "Fees or interest": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 35,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 35
+      },
+      "Fraud or scam": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 42,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 42
+      },
+      "Getting a credit card": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 36,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 36
+      },
+      "Getting a line of credit": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "Getting a loan or lease": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 14,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 14
+      },
+      "Improper use of your report": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1192,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1192
+      },
+      "Incorrect information on your report": {
+        "tp": 2037,
+        "fp": 1835,
+        "fn": 43,
+        "precision": 0.526085,
+        "recall": 0.979327,
+        "f1": 0.684476,
+        "support": 2080
+      },
+      "Managing an account": {
+        "tp": 188,
+        "fp": 188,
+        "fn": 0,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.666667,
+        "support": 188
+      },
+      "Managing the loan or lease": {
+        "tp": 23,
+        "fp": 73,
+        "fn": 0,
+        "precision": 0.239583,
+        "recall": 1.0,
+        "f1": 0.386555,
+        "support": 23
+      },
+      "Managing, opening, or closing your mobile wallet account": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 9,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 9
+      },
+      "Money was not available when promised": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 13,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 13
+      },
+      "Opening an account": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 28,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 28
+      },
+      "Other features, terms, or problems": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 44,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 44
+      },
+      "Other service problem": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "Other transaction problem": {
+        "tp": 28,
+        "fp": 138,
+        "fn": 0,
+        "precision": 0.168675,
+        "recall": 1.0,
+        "f1": 0.28866,
+        "support": 28
+      },
+      "Problem caused by your funds being low": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 28,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 28
+      },
+      "Problem getting a card or closing an account": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3
+      },
+      "Problem when making payments": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 30,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 30
+      },
+      "Problem with a company's investigation into an existing issue": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4
+      },
+      "Problem with a company's investigation into an existing problem": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 627,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 627
+      },
+      "Problem with a lender or other company charging your account": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 71,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 71
+      },
+      "Problem with a purchase or transfer": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 9,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 9
+      },
+      "Problem with a purchase shown on your statement": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 128,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 128
+      },
+      "Problem with fraud alerts or security freezes": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 20,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 20
+      },
+      "Problem with the payoff process at the end of the loan": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 6,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 6
+      },
+      "Problems at the end of the loan or lease": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 11,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 11
+      },
+      "Struggling to pay mortgage": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 30,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 30
+      },
+      "Struggling to pay your loan": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 11,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 11
+      },
+      "Struggling to repay your loan": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 20,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 20
+      },
+      "Threatened to contact someone or share information improperly": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 8,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 8
+      },
+      "Took or threatened to take negative or legal action": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 77,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 77
+      },
+      "Trouble during payment process": {
+        "tp": 82,
+        "fp": 69,
+        "fn": 0,
+        "precision": 0.543046,
+        "recall": 1.0,
+        "f1": 0.703863,
+        "support": 82
+      },
+      "Trouble using the card": {
+        "tp": 14,
+        "fp": 19,
+        "fn": 0,
+        "precision": 0.424242,
+        "recall": 1.0,
+        "f1": 0.595745,
+        "support": 14
+      },
+      "Trouble using your card": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 17,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 17
+      },
+      "Unable to get your credit report or credit score": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 15,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 15
+      },
+      "Unauthorized transactions or other transaction problem": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 32,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 32
+      },
+      "Unexpected or other fees": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 12,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 12
+      },
+      "Written notification about debt": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 163,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 163
+      },
+      "__OTHER__": {
+        "tp": 42,
+        "fp": 408,
+        "fn": 80,
+        "precision": 0.093333,
+        "recall": 0.344262,
+        "f1": 0.146853,
+        "support": 122
+      }
+    },
+    "B2": {
+      "Advertising and marketing, including promotional offers": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 22,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 22
+      },
+      "Applying for a mortgage or refinancing an existing mortgage": {
+        "tp": 1,
+        "fp": 2,
+        "fn": 12,
+        "precision": 0.333333,
+        "recall": 0.076923,
+        "f1": 0.125,
+        "support": 13
+      },
+      "Attempts to collect debt not owed": {
+        "tp": 130,
+        "fp": 262,
+        "fn": 248,
+        "precision": 0.331633,
+        "recall": 0.343915,
+        "f1": 0.337662,
+        "support": 378
+      },
+      "Charged fees or interest you didn't expect": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 15,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 15
+      },
+      "Closing an account": {
+        "tp": 4,
+        "fp": 1,
+        "fn": 52,
+        "precision": 0.8,
+        "recall": 0.071429,
+        "f1": 0.131148,
+        "support": 56
+      },
+      "Closing on a mortgage": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 15,
+        "precision": 0.75,
+        "recall": 0.166667,
+        "f1": 0.272727,
+        "support": 18
+      },
+      "Closing your account": {
+        "tp": 1,
+        "fp": 1,
+        "fn": 20,
+        "precision": 0.5,
+        "recall": 0.047619,
+        "f1": 0.086957,
+        "support": 21
+      },
+      "Communication tactics": {
+        "tp": 18,
+        "fp": 24,
+        "fn": 15,
+        "precision": 0.428571,
+        "recall": 0.545455,
+        "f1": 0.48,
+        "support": 33
+      },
+      "Confusing or missing disclosures": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 10,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 10
+      },
+      "Credit monitoring or identity theft protection services": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 12,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 12
+      },
+      "Dealing with your lender or servicer": {
+        "tp": 29,
+        "fp": 51,
+        "fn": 6,
+        "precision": 0.3625,
+        "recall": 0.828571,
+        "f1": 0.504348,
+        "support": 35
+      },
+      "False statements or representation": {
+        "tp": 3,
+        "fp": 15,
+        "fn": 107,
+        "precision": 0.166667,
+        "recall": 0.027273,
+        "f1": 0.046875,
+        "support": 110
+      },
+      "Fees or interest": {
+        "tp": 11,
+        "fp": 8,
+        "fn": 24,
+        "precision": 0.578947,
+        "recall": 0.314286,
+        "f1": 0.407407,
+        "support": 35
+      },
+      "Fraud or scam": {
+        "tp": 8,
+        "fp": 6,
+        "fn": 34,
+        "precision": 0.571429,
+        "recall": 0.190476,
+        "f1": 0.285714,
+        "support": 42
+      },
+      "Getting a credit card": {
+        "tp": 2,
+        "fp": 1,
+        "fn": 34,
+        "precision": 0.666667,
+        "recall": 0.055556,
+        "f1": 0.102564,
+        "support": 36
+      },
+      "Getting a line of credit": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "Getting a loan or lease": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 13,
+        "precision": 1.0,
+        "recall": 0.071429,
+        "f1": 0.133333,
+        "support": 14
+      },
+      "Improper use of your report": {
+        "tp": 163,
+        "fp": 224,
+        "fn": 1029,
+        "precision": 0.421189,
+        "recall": 0.136745,
+        "f1": 0.20646,
+        "support": 1192
+      },
+      "Incorrect information on credit report": {
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Incorrect information on your report": {
+        "tp": 1260,
+        "fp": 711,
+        "fn": 820,
+        "precision": 0.639269,
+        "recall": 0.605769,
+        "f1": 0.622069,
+        "support": 2080
+      },
+      "Managing an account": {
+        "tp": 151,
+        "fp": 354,
+        "fn": 37,
+        "precision": 0.29901,
+        "recall": 0.803191,
+        "f1": 0.435786,
+        "support": 188
+      },
+      "Managing the loan or lease": {
+        "tp": 5,
+        "fp": 17,
+        "fn": 18,
+        "precision": 0.227273,
+        "recall": 0.217391,
+        "f1": 0.222222,
+        "support": 23
+      },
+      "Managing, opening, or closing your mobile wallet account": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 9,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 9
+      },
+      "Money was not available when promised": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 13,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 13
+      },
+      "Opening an account": {
+        "tp": 4,
+        "fp": 4,
+        "fn": 24,
+        "precision": 0.5,
+        "recall": 0.142857,
+        "f1": 0.222222,
+        "support": 28
+      },
+      "Other features, terms, or problems": {
+        "tp": 8,
+        "fp": 14,
+        "fn": 36,
+        "precision": 0.363636,
+        "recall": 0.181818,
+        "f1": 0.242424,
+        "support": 44
+      },
+      "Other service problem": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 5
+      },
+      "Other transaction problem": {
+        "tp": 7,
+        "fp": 0,
+        "fn": 21,
+        "precision": 1.0,
+        "recall": 0.25,
+        "f1": 0.4,
+        "support": 28
+      },
+      "Problem caused by your funds being low": {
+        "tp": 2,
+        "fp": 2,
+        "fn": 26,
+        "precision": 0.5,
+        "recall": 0.071429,
+        "f1": 0.125,
+        "support": 28
+      },
+      "Problem getting a card or closing an account": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 3
+      },
+      "Problem when making payments": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 30,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 30
+      },
+      "Problem with a company's investigation into an existing issue": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 4
+      },
+      "Problem with a company's investigation into an existing problem": {
+        "tp": 291,
+        "fp": 1190,
+        "fn": 336,
+        "precision": 0.196489,
+        "recall": 0.464115,
+        "f1": 0.276091,
+        "support": 627
+      },
+      "Problem with a credit reporting company's investigation into an existing problem": {
+        "tp": 0,
+        "fp": 312,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "Problem with a lender or other company charging your account": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 70,
+        "precision": 1.0,
+        "recall": 0.014085,
+        "f1": 0.027778,
+        "support": 71
+      },
+      "Problem with a purchase or transfer": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 9,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 9
+      },
+      "Problem with a purchase shown on your statement": {
+        "tp": 103,
+        "fp": 104,
+        "fn": 25,
+        "precision": 0.497585,
+        "recall": 0.804688,
+        "f1": 0.614925,
+        "support": 128
+      },
+      "Problem with fraud alerts or security freezes": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 19,
+        "precision": 1.0,
+        "recall": 0.05,
+        "f1": 0.095238,
+        "support": 20
+      },
+      "Problem with the payoff process at the end of the loan": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 6,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 6
+      },
+      "Problems at the end of the loan or lease": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 11,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 11
+      },
+      "Struggling to pay mortgage": {
+        "tp": 16,
+        "fp": 22,
+        "fn": 14,
+        "precision": 0.421053,
+        "recall": 0.533333,
+        "f1": 0.470588,
+        "support": 30
+      },
+      "Struggling to pay your loan": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 11,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 11
+      },
+      "Struggling to repay your loan": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 20,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 20
+      },
+      "Threatened to contact someone or share information improperly": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 8,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 8
+      },
+      "Took or threatened to take negative or legal action": {
+        "tp": 8,
+        "fp": 30,
+        "fn": 69,
+        "precision": 0.210526,
+        "recall": 0.103896,
+        "f1": 0.13913,
+        "support": 77
+      },
+      "Trouble during payment process": {
+        "tp": 71,
+        "fp": 77,
+        "fn": 11,
+        "precision": 0.47973,
+        "recall": 0.865854,
+        "f1": 0.617391,
+        "support": 82
+      },
+      "Trouble using the card": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 13,
+        "precision": 1.0,
+        "recall": 0.071429,
+        "f1": 0.133333,
+        "support": 14
+      },
+      "Trouble using your card": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 17,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 17
+      },
+      "Unable to get your credit report or credit score": {
+        "tp": 2,
+        "fp": 3,
+        "fn": 13,
+        "precision": 0.4,
+        "recall": 0.133333,
+        "f1": 0.2,
+        "support": 15
+      },
+      "Unauthorized transactions or other transaction problem": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 32,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 32
+      },
+      "Unexpected or other fees": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 12,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 12
+      },
+      "Written notification about debt": {
+        "tp": 27,
+        "fp": 97,
+        "fn": 136,
+        "precision": 0.217742,
+        "recall": 0.165644,
+        "f1": 0.188153,
+        "support": 163
+      },
+      "__OTHER__": {
+        "tp": 12,
+        "fp": 121,
+        "fn": 110,
+        "precision": 0.090226,
+        "recall": 0.098361,
+        "f1": 0.094118,
+        "support": 122
+      }
+    }
+  },
+  "seed": 20261107,
+  "majority_class": "Incorrect information on your report",
+  "n_train": 27977,
+  "n_val": 6022,
+  "n_test": 6001
+}

@@ -1,0 +1,18 @@
+{
+  "purpose": "two independent full-file runs of src/profile_full.py on the same archive",
+  "run1": {
+    "elapsed_seconds": 427.04,
+    "peak_working_set_bytes": 0,
+    "generated_at_utc": "2026-11-07T10:24:03Z"
+  },
+  "run2": {
+    "elapsed_seconds": 580.84,
+    "peak_working_set_bytes": 168443904,
+    "generated_at_utc": "2026-11-07T10:36:48Z",
+    "peak_working_set_mb": 160.6
+  },
+  "compared_fields": 18,
+  "differing_fields": [],
+  "identical": true,
+  "note": "run1 peak memory is 0 because of a ctypes handle-truncation bug that was fixed before run2; run2 is the authoritative memory measurement."
+}

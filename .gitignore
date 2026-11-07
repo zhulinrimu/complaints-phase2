@@ -1,0 +1,14 @@
+# Never commit the 8.9 GB raw file, its uncompressed copy, or ID buckets.
+*.zip
+*.csv.gz
+!data/sample_complaints.csv
+data/derived/_id_buckets/
+__pycache__/
+.pytest_cache/
+*.pyc
+_smoke/
+_preview/
+results/profile_full.log
+results/profile_full_run2.log
+# Real API responses may contain redacted-but-sensitive text: opt in explicitly.
+results/llm_cache.jsonl
