@@ -19,7 +19,7 @@
       "n_test": 6001,
       "n_boot": 500,
       "wall_seconds": 0.0,
-      "peak_working_set_mb": 117.7
+      "peak_working_set_mb": 117.2
     },
     "B1": {
       "macro_f1": 0.093778,
@@ -32,7 +32,7 @@
       "n_test": 6001,
       "n_boot": 500,
       "wall_seconds": 0.003,
-      "peak_working_set_mb": 117.7
+      "peak_working_set_mb": 117.2
     },
     "B2": {
       "macro_f1": 0.155597,
@@ -44,14 +44,24 @@
       "accuracy": 0.390602,
       "n_test": 6001,
       "n_boot": 500,
-      "wall_seconds": 19.931,
-      "peak_working_set_mb": 139.4
+      "wall_seconds": 18.654,
+      "peak_working_set_mb": 139.5
     },
     "B3": {
-      "status": "NOT_RUN",
-      "reason": "no authorised LLM endpoint / API key; external transmission of complaint narratives requires explicit team approval",
-      "implementation": "src/llm_eval.py",
-      "procedure": "run `python src/llm_eval.py --backend api` after configuring configs/llm.json and LLM_API_KEY; the same frozen eval IDs, prompt and metrics are then applied"
+      "status": "SCORED",
+      "macro_f1": 0.170558,
+      "macro_f1_ci95": [
+        0.128355,
+        0.192066
+      ],
+      "balanced_accuracy": 0.20887,
+      "accuracy": 0.1825,
+      "abstention_rate": 0.0,
+      "n": 400,
+      "n_boot": 500,
+      "backend": "cache_replay",
+      "sample_frame": "Issue-stratified n=400 subset of the frozen test fold",
+      "caveat": "not comparable with B0-B2 in Table 1 (n=6,001 full test fold); see results/table1b_llm_subset.md for same-frame controls"
     }
   },
   "per_class": {

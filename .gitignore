@@ -10,5 +10,6 @@ _smoke/
 _preview/
 results/profile_full.log
 results/profile_full_run2.log
-# Real API responses may contain redacted-but-sensitive text: opt in explicitly.
-results/llm_cache.jsonl
+# The response cache IS committed: it holds only labels and short verbatim
+# evidence quotes from redacted text, and is the reproducibility anchor for B3.
+# Full complaint text and the annotation batch files stay outside this repo.

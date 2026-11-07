@@ -127,9 +127,17 @@ def main() -> int:
         f"**{prof['narrative']['reservoir_size']:,}** is used for the baselines.",
         "", "## Collection process", "",
         "- Source: Consumer Financial Protection Bureau (CFPB), Consumer Complaint "
-        "Database, public download of `complaints.csv.zip` containing `complaints.csv`.",
-        "- ＊TO CONFIRM BY TEAM＊: exact download URL, download date, snapshot/version "
-        "identifier, and the licence / terms-of-use statement at download time.",
+        "Database, public download of `complaints.csv.zip` containing `complaints.csv`. "
+        "Official description and terms: "
+        "https://www.consumerfinance.gov/data-research/consumer-complaints/ [1].",
+        "- Licence / ownership: CFPB states that all complaint data it publishes is "
+        "freely available for anyone to use, analyse and build on. CFPB also states "
+        "the database is not a statistically representative sample of consumers' "
+        "experiences in the marketplace; this is recorded as a scope limitation.",
+        "- Snapshot identity is fixed by the SHA256 of the uncompressed CSV (above), "
+        "not by a download date: any new download with a different hash requires a "
+        "fresh split and a full rerun. The archive was supplied with the course "
+        "materials; no separate download event is claimed.",
         "- Included population: complaints submitted to CFPB and published in the database. "
         "Excluded: consumers who never complained, unpublished records, non-US jurisdictions.",
         "", "## Preprocessing", "",
@@ -147,7 +155,9 @@ def main() -> int:
         "decisions about consumers.",
         "", "## Distribution and maintenance", "",
         "- The raw 8.9 GB file is NOT redistributed in this repository. Access method: "
-        "public CFPB download (URL/date to be recorded by the team).",
+        "the public CFPB Consumer Complaint Database download page [1]. The local "
+        "plaintext copy stays in the team workspace, is excluded by `.gitignore`, "
+        "and is not uploaded to any code host or third-party service.",
         "- A small synthetic sample (`data/sample_complaints.csv`) is included for tests.",
         "- Versioning: dataset identity is the uncompressed CSV SHA256 above; any new "
         "download requires a new split and a new run of `src/run_all.py`.",
@@ -156,7 +166,12 @@ def main() -> int:
         "and addresses; no raw narrative is published in the report.",
         "- `Tags` (servicemember / older American) and ZIP are sensitive; used only for "
         "subgroup auditing, never as predictors.",
-        "- ＊TO CONFIRM BY TEAM＊: local plaintext access control and deletion policy.",
+        "- Access control and deletion: the single local plaintext archive is not "
+        "shared, not committed, and not sent to any external API. Only SHA256-pinned "
+        "IDs, aggregate statistics, short redacted evidence quotes and derived "
+        "artefacts are published. The archive can be deleted after reproduction; "
+        "the committed results remain verifiable from the frozen split IDs and the "
+        "response cache.",
         "",
     ]
     (root / "data" / "dataset_card.md").write_text("\n".join(card), encoding="utf-8")
@@ -185,7 +200,7 @@ def main() -> int:
             "python src/run_all.py --source <complaints.csv.zip> --root .",
             "python -m pytest -q",
             "python src/make_figures.py --root .",
-            "python src/llm_eval.py --root . --backend mock --limit 20",
+            "python src/llm_eval.py --root . --backend cache",
         ],
     }
     (root / "environment.json").write_text(
@@ -198,14 +213,19 @@ def main() -> int:
         "python src/profile_full.py --source <complaints.csv.zip> --out-dir . --sample-size 40000",
         "python src/split.py --root .",
         "python src/baselines.py --root .",
-        "python src/llm_eval.py --root . --backend mock",
+        "python src/llm_eval.py --root . --backend cache",
         "python src/make_figures.py --root .",
         "python src/make_docs.py --root .",
         "python -m pytest -q",
         "```", "",
-        "Replace `--backend mock` with `--backend cache` or `--backend api` when an "
-        "authorised model endpoint is available. Mock numbers are never reportable "
-        "model results.", "",
+        "`--backend cache` is the DEFAULT reproducible path: `results/llm_cache.jsonl` "
+        "holds 1,203 verbatim in-session LLM responses (400 records x 3 independent "
+        "repeats + 3 adversarial cases), keyed by prompt SHA256. Replaying it "
+        "regenerates every reported B3 number without any network call. Course guide "
+        "p.25 explicitly permits cached evaluation artefacts. `--backend mock` is a "
+        "deterministic harness self-test and its numbers are never reportable; "
+        "`--backend api` needs `LLM_API_KEY` plus a pinned model version and is "
+        "reserved for phase 3 cross-model comparison.", "",
         f"Full-file profile: {n:,} logical rows in "
         f"{prof['meta']['elapsed_seconds']:,} s, peak working set "
         f"{prof['meta']['peak_working_set_bytes']/2**20:,.0f} MiB.", "",

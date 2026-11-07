@@ -163,15 +163,16 @@ def main() -> int:
         print(f"[{name}] macroF1={results[name]['macro_f1']:.4f} "
               f"acc={results[name]['accuracy']:.4f} t={elapsed:.1f}s", flush=True)
 
-    # B3 is a declared, unscored condition (no authorised endpoint).
+    # B3 placeholder.  src/llm_eval.py overwrites this entry with real scores
+    # whenever a non-simulated backend (cache replay or live API) is run.
     results["B3"] = {
-        "status": "NOT_RUN",
-        "reason": "no authorised LLM endpoint / API key; external transmission of "
-                  "complaint narratives requires explicit team approval",
+        "status": "NOT_RUN_IN_THIS_STEP",
+        "reason": "computed downstream by src/llm_eval.py on the frozen LLM "
+                  "evaluation subset; see results/llm_pilot.json",
         "implementation": "src/llm_eval.py",
-        "procedure": "run `python src/llm_eval.py --backend api` after configuring "
-                     "configs/llm.json and LLM_API_KEY; the same frozen eval IDs, "
-                     "prompt and metrics are then applied",
+        "procedure": "run `python src/llm_eval.py --backend cache` (committed "
+                     "response cache) or `--backend api` with LLM_API_KEY; both "
+                     "use the same frozen eval IDs, prompt and metrics",
     }
 
     dump_json({"label_policy": policy, "baselines": results,
@@ -183,10 +184,10 @@ def main() -> int:
 
     rows = []
     for name, m in results.items():
-        if m.get("status") == "NOT_RUN":
+        if m.get("status", "").startswith("NOT_RUN"):
             rows.append([name, "LLM (frozen eval set)", "NOT RUN", "NOT RUN",
                          "NOT RUN", "NOT RUN", "-", "-",
-                         "awaiting API authorisation"])
+                         "filled by src/llm_eval.py when real responses exist"])
         else:
             rows.append([name, {"B0": "majority class", "B1": "Product->Issue prior",
                                 "B2": "bag-of-words Naive Bayes"}[name],
@@ -210,8 +211,9 @@ def main() -> int:
           "|---|---|---|---|---|---|---|---|"]
     for r in rows:
         md.append("| " + " | ".join(str(x) for x in r[:8]) + " |")
-    md += ["", "B3 (LLM) is intentionally unscored: no authorised endpoint was "
-               "available. See `src/llm_eval.py` and section 7.5 of the report.", ""]
+    md += ["", "B3 is scored downstream by `src/llm_eval.py` on a frozen "
+               "n=400 Issue-stratified subset. This placeholder row is replaced "
+               "with real numbers by that script; see section 7.4 of the report.", ""]
     (root / "results" / "table1_baselines.md").write_text("\n".join(md), encoding="utf-8")
 
     pc_rows = []

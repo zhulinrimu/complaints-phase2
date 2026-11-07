@@ -1,0 +1,42 @@
+{
+  "generated_at_utc": "2026-11-07T14:08:39+00:00",
+  "method": "real in-session LLM inference, recorded verbatim, replayed by src/llm_eval.py --backend cache",
+  "IS_SIMULATION": false,
+  "provider": "workbuddy-in-session-llm",
+  "model": "WorkBuddy session LLM (platform-managed)",
+  "model_version": "2026-11-07 session; platform does not expose a pinned snapshot id",
+  "session_date": "2026-11-07",
+  "model_version_limitation": "The platform does not expose a pinned snapshot id; results are reproducible via this response cache, not via a frozen model endpoint.",
+  "external_transmission": "none; all inference happened inside the WorkBuddy session. The team's 2026-11-07 authorisation was therefore not exercised.",
+  "n_eval_records": 400,
+  "n_adversarial": 3,
+  "independent_repeats": 3,
+  "n_responses": 1203,
+  "max_input_chars": 800,
+  "redaction": "src/redact.py applied before inference",
+  "prompt_sha256": "b1387736f441238b198ce277cae542982f4d89aabd1b16fc78034edee86ba96f",
+  "config_sha256": "0df9558245d2362bda4fa5b27bd610e362aec0fd9390abddbdec8ce0da75c30c",
+  "cache_sha256": "116de2080c4ed56c2fca0026def375e87c0349b9f9a74466263c6c4313abb971",
+  "response_source_sha256": {
+    "out_r1_b01.jsonl": "73b884ae96b227a57ccdb69886b370ece6ed0945090282a2f9ac549056aae720",
+    "out_r1_b02.jsonl": "5004dd3de750c28d62f0d3684b89699ca41af503f158e77a96c653e3bdf5f354",
+    "out_r1_b03.jsonl": "841358591e8410ffcbfaaffc071260af9e3774ff70f863323ce9b0ab112b24ef",
+    "out_r1_b04.jsonl": "288dc12cca86d4d85a986f5e4b86731b73932b9464cb234464d6c80b3aa00789",
+    "out_r2_b01.jsonl": "4be04f3ce40c1e57092b95dea77007f325cacfc2f1a567d84070a2f965ef9f53",
+    "out_r2_b02.jsonl": "13d852d28109048683c31dc82dd6f81d2b22d48f06eb977c75223a345f4e2b09",
+    "out_r2_b03.jsonl": "38c6300dffe137f8924b3dd2ea90a5189f12d37f2abb54d28f41001601b48f3e",
+    "out_r2_b04.jsonl": "46ea6a7f307861eae35488c4679959cba33ac32e35faa86b85f787538ddc4e52",
+    "out_r3_b01.jsonl": "7661c71aaca42ab3cd7a67ace784f53bbfff6913f401179834e2e14a8c1b5c24",
+    "out_r3_b02.jsonl": "5ecdc6accfc19e7876847f2573c4062c1293937db4f588efb11c4b60416300b3",
+    "out_r3_b03.jsonl": "ace188ed269a4b9b1c93c3324c7994a21a85a86271ee39aa4d1ea90c8a358a7a",
+    "out_r3_b04.jsonl": "b1740535bc264f9df8884b4abd5e0785cde90de1809fdc2a403fff3c779f717e",
+    "out_adv.jsonl": "7550201963eac7ada424f6b9523bb0b954afca8a43a8e02bf7766659746ad389"
+  },
+  "validation": {
+    "missing_responses": 0,
+    "label_out_of_domain": 0,
+    "ungrounded_evidence": 0
+  },
+  "privacy": "Only short evidence quotes and labels are stored; the full complaint text is never written to the repository.",
+  "guide_reference": "course guide p.25 permits cached evaluation artifacts when an external API is unavailable"
+}

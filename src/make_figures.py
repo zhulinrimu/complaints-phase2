@@ -196,41 +196,74 @@ def main() -> int:
         "`clean.py` plus `validate.assert_no_leakage()` is the structural leak guard; "
         "the temporal split is frozen as SHA256-listed ID files before any baseline is fit.")
 
-    # ---- Figure 6: baseline comparison with bootstrap CIs ---------------
-    t1 = read_csv(R / "table1_baselines.csv")
-    real = [r for r in t1 if r["baseline"] != "B3"]
-    names6 = [r["baseline"] for r in real]
-    mf = [float(r["macro_f1"]) for r in real]
-    ci = [json.loads(r["macro_f1_ci95"].replace("[", "[").replace("]", "]"))
-          if r["macro_f1_ci95"].startswith("[") else None for r in real]
-    err = [[max(0, m - c[0]) for m, c in zip(mf, ci)],
-           [max(0, c[1] - m) for m, c in zip(mf, ci)]] if all(ci) else None
-    fig, axes = plt.subplots(1, 2, figsize=(9.2, 3.5))
-    axes[0].bar(names6, mf, color=[BLUE, GREEN, ORANGE], alpha=.88,
-                yerr=err, capsize=4, ecolor=GREY)
-    axes[0].set_ylim(0, max(mf + [0.1]) * 1.35)
-    axes[0].set_ylabel("macro-F1 (95% bootstrap CI)")
-    axes[0].set_title("Fig. 6a  Baselines on frozen test fold")
-    metrics2 = ["balanced_accuracy", "accuracy"]
-    width = .36
-    for j, m in enumerate(metrics2):
-        vals = [float(r[m]) for r in real]
-        axes[1].bar([i + (j - .5) * width for i in range(len(names6))], vals,
-                    width=width, label=m.replace("_", " "),
-                    color=[BLUE, ORANGE][j], alpha=.88)
-    axes[1].set_xticks(range(len(names6))); axes[1].set_xticklabels(names6)
-    axes[1].set_ylim(0, 1); axes[1].legend(fontsize=7)
-    axes[1].set_title("Fig. 6b  Aggregate metrics")
-    fig.suptitle("Fig. 6  Initial baseline results (B3 LLM not scored: no authorised endpoint)",
-                 fontsize=9.5)
-    save(fig, F / "fig6_baselines.png")
-    findings.append(
-        "- **Fig. 6** " + "; ".join(
-            f"{r['baseline']} macro-F1={r['macro_f1']} "
-            f"(95% CI {r['macro_f1_ci95']}), accuracy={r['accuracy']}"
-            for r in real) +
-        ". B3 (LLM) is deliberately unscored until an endpoint is authorised; "
-        "its evaluation harness, prompt snapshot and metrics are complete.")
+    # ---- Figure 6: SAME-FRAME comparison on the LLM evaluation subset ---
+    # Table 1's B0-B2 use the full 6,001-record test fold while B3 uses a
+    # 400-record stratified subset.  Figure 6 therefore plots Table 1b, where
+    # all four methods are recomputed on the identical 400 records.
+    t1b_path = R / "table1b_llm_subset.json"
+    if t1b_path.exists():
+        t1b = json.loads(t1b_path.read_text(encoding="utf-8"))["rows"]
+        names6 = [r[0] for r in t1b]
+        mf = [float(r[1]) for r in t1b]
+        ci = [json.loads(r[2]) for r in t1b]
+        ba6 = [float(r[3]) for r in t1b]
+        ac6 = [float(r[4]) for r in t1b]
+        err = [[max(0, m - c[0]) for m, c in zip(mf, ci)],
+               [max(0, c[1] - m) for m, c in zip(mf, ci)]]
+        fig, axes = plt.subplots(1, 2, figsize=(9.2, 3.5))
+        axes[0].bar(names6, mf, color=[BLUE, GREEN, ORANGE, "#b03a2e"],
+                    alpha=.88, yerr=err, capsize=4, ecolor=GREY)
+        axes[0].set_ylim(0, max(mf + [0.1]) * 1.35)
+        axes[0].set_ylabel("macro-F1 (95% bootstrap CI)")
+        axes[0].set_title("Fig. 6a  Same n=400 evaluation subset")
+        width = .36
+        for j, (metric, vals) in enumerate([("balanced accuracy", ba6),
+                                            ("accuracy", ac6)]):
+            axes[1].bar([i + (j - .5) * width for i in range(len(names6))],
+                        vals, width=width, label=metric,
+                        color=[BLUE, ORANGE][j], alpha=.88)
+        axes[1].set_xticks(range(len(names6))); axes[1].set_xticklabels(names6)
+        axes[1].set_ylim(0, 1); axes[1].legend(fontsize=7)
+        axes[1].set_title("Fig. 6b  Aggregate metrics, same subset")
+        fig.suptitle("Fig. 6  Same-frame comparison: in-session LLM vs three baselines "
+                     "(n=400, 95% bootstrap CI)", fontsize=9.5)
+        save(fig, F / "fig6_baselines.png")
+        findings.append(
+            "- **Fig. 6** All four methods are recomputed on the SAME 400 "
+            "Issue-stratified frozen test records and the same redacted, "
+            "800-character input: " + "; ".join(
+                f"{r[0]} macro-F1={r[1]} (95% CI {r[2]})" for r in t1b) +
+            ". The LLM point estimate is highest, but its CI overlaps B2-sub's "
+            "upper tail, so this is a promising difference, NOT a claim of "
+            "statistical significance.")
+    else:
+        t1 = read_csv(R / "table1_baselines.csv")
+        real = [r for r in t1 if r["baseline"] != "B3"]
+        names6 = [r["baseline"] for r in real]
+        mf = [float(r["macro_f1"]) for r in real]
+        ci = [json.loads(r["macro_f1_ci95"]) for r in real]
+        err = [[max(0, m - c[0]) for m, c in zip(mf, ci)],
+               [max(0, c[1] - m) for m, c in zip(mf, ci)]]
+        fig, axes = plt.subplots(1, 2, figsize=(9.2, 3.5))
+        axes[0].bar(names6, mf, color=[BLUE, GREEN, ORANGE], alpha=.88,
+                    yerr=err, capsize=4, ecolor=GREY)
+        axes[0].set_ylim(0, max(mf + [0.1]) * 1.35)
+        axes[0].set_ylabel("macro-F1 (95% bootstrap CI)")
+        axes[0].set_title("Fig. 6a  Baselines on frozen test fold")
+        width = .36
+        for j, m in enumerate(["balanced_accuracy", "accuracy"]):
+            vals = [float(r[m]) for r in real]
+            axes[1].bar([i + (j - .5) * width for i in range(len(names6))], vals,
+                        width=width, label=m.replace("_", " "),
+                        color=[BLUE, ORANGE][j], alpha=.88)
+        axes[1].set_xticks(range(len(names6))); axes[1].set_xticklabels(names6)
+        axes[1].set_ylim(0, 1); axes[1].legend(fontsize=7)
+        axes[1].set_title("Fig. 6b  Aggregate metrics")
+        fig.suptitle("Fig. 6  Initial baseline results (B3 LLM not scored)",
+                     fontsize=9.5)
+        save(fig, F / "fig6_baselines.png")
+        findings.append("- **Fig. 6** B3 LLM is unscored in this run; only the "
+                        "mock harness self-test was executed.")
 
     # ---- head-vs-full evidence table + tables bundle ---------------------
     h = prof["head_100k"]

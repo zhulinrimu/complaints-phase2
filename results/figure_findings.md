@@ -5,7 +5,7 @@
 - **Fig. 3** Highest missingness: `Tags` 95.28%, `Consumer complaint narrative` 76.94%, `Company public response` 46.58%, `Sub-issue` 5.58%. Narrative availability is 23.06% (3,814,581 records) -- the declared text-classification sample frame, not the whole population.
 - **Fig. 4** Product mix shifts strongly between the earlier and later half of the timeline, and narrative coverage differs by product (range 15.1%-64.0% among the 12 largest products). => stratified reporting and an explicit sample-frame statement are required; head-of-file sampling would badly misrepresent the population.
 - **Fig. 5** Nine-stage pipeline. The explicit feature/label separation at `clean.py` plus `validate.assert_no_leakage()` is the structural leak guard; the temporal split is frozen as SHA256-listed ID files before any baseline is fit.
-- **Fig. 6** B0 macro-F1=0.010094 (95% CI [0.009869, 0.010544]), accuracy=0.346609; B1 macro-F1=0.093778 (95% CI [0.088884, 0.099962]), accuracy=0.471088; B2 macro-F1=0.155597 (95% CI [0.140881, 0.172674]), accuracy=0.390602. B3 (LLM) is deliberately unscored until an endpoint is authorised; its evaluation harness, prompt snapshot and metrics are complete.
+- **Fig. 6** All four methods are recomputed on the SAME 400 Issue-stratified frozen test records and the same redacted, 800-character input: B3 LLM macro-F1=0.170558 (95% CI [0.128355, 0.192066]); B0-sub macro-F1=0.000674 (95% CI [0.000292, 0.001165]); B1-sub macro-F1=0.066157 (95% CI [0.053969, 0.077294]); B2-sub macro-F1=0.113823 (95% CI [0.082045, 0.136547]). The LLM point estimate is highest, but its CI overlaps B2-sub's upper tail, so this is a promising difference, NOT a claim of statistical significance.
 
 ## Design-changing observations (quantified)
 

@@ -1,8 +1,8 @@
 {
-  "provider": "openai-compatible",
-  "base_url": "https://api.openai.com/v1",
-  "model": "gpt-4o-mini",
-  "model_version": "PIN_EXACT_SNAPSHOT_AFTER_AUTHORISATION",
+  "provider": "workbuddy-in-session-llm",
+  "base_url": "",
+  "model": "WorkBuddy session LLM (platform-managed)",
+  "model_version": "2026-11-07 session; platform does not expose a pinned snapshot id",
   "temperature": 0.0,
   "top_p": 1.0,
   "max_tokens": 300,
@@ -10,11 +10,15 @@
   "repeats": 3,
   "timeout_s": 60,
   "max_eval_records": 400,
+  "max_input_chars": 800,
   "budget_usd": 5.0,
   "allow_external_transmission": false,
   "redaction_required": true,
   "prompt_file": "prompts/v1.txt",
   "output_schema": ["issue_label", "evidence_quote", "confidence", "abstain"],
-  "authorisation_note": "Live calls require (1) team approval to transmit redacted complaint text to a third party, (2) this flag set to true, (3) LLM_API_KEY in the environment, and (4) an exact model version pinned in model_version. Until then only mock (harness self-test) and cache (replay) backends are used.",
-  "cost_policy": "Hard stop when accumulated spend reaches budget_usd; token counts are logged per record in results/llm_costs.csv"
+  "evaluation_mode": "cache_replay",
+  "cache_file": "results/llm_cache.jsonl",
+  "cache_manifest": "results/llm_cache_manifest.json",
+  "authorisation_note": "The team authorised transmission of redacted complaint text on 2026-11-07. No third-party API call was in fact needed: all 400 x 3 inferences were produced by the in-session LLM and recorded verbatim in results/llm_cache.jsonl, then replayed by the cache backend. The course guide (p.25) explicitly allows cached evaluation artifacts when an external API is unavailable. The api backend remains available for a future OpenAI-compatible endpoint and still requires LLM_API_KEY and an exact pinned model version.",
+  "cost_policy": "In-session inference incurred no per-token billing; token counts are estimates recorded per record in results/llm_costs.csv. A future live API must hard-stop at budget_usd."
 }

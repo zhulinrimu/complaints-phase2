@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-07T10:37:47Z",
+  "generated_at_utc": "2026-11-07T14:14:49Z",
   "python": "3.13.14 (main, Jun 11 2026, 04:04:46) [MSC v.1944 64 bit (AMD64)]",
   "implementation": "CPython",
   "platform": "Windows-11-10.0.26200-SP0",
@@ -30,6 +30,6 @@
     "python src/run_all.py --source <complaints.csv.zip> --root .",
     "python -m pytest -q",
     "python src/make_figures.py --root .",
-    "python src/llm_eval.py --root . --backend mock --limit 20"
+    "python src/llm_eval.py --root . --backend cache"
   ]
 }
