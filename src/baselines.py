@@ -4,8 +4,9 @@
 B0  majority class (constant predictor)
 B1  Product -> Issue prior lookup table
 B2  bag-of-words multinomial Naive Bayes (log-linear, standard library only)
-B3  LLM -- implemented in llm_eval.py; deliberately NOT scored here until an
-    authorised model endpoint is configured.  We do not fabricate LLM numbers.
+B3  LLM -- implemented in llm_eval.py and scored from the verbatim response
+    cache (results/llm_cache.jsonl) via --backend cache; see report 7.4. Mock
+    backend numbers are harness self-tests and are never reported as results.
 
 Outputs: results/table1_baselines.csv / .md, results/baseline_metrics.json,
          results/per_class_recall.csv

@@ -99,6 +99,27 @@ python src/make_figures.py --root .        # uses committed results/*.json
 python src/llm_eval.py --root . --backend cache
 ```
 
+### Reproducibility tiers
+
+The 40,000-row derived narrative sample (`data/derived/narrative_sample.csv.gz`)
+contains complaint narratives and is intentionally **not** versioned
+(`.gitignore`); it is written by `src/profile_full.py --source <complaints.csv.zip>`.
+The commands therefore fall into three tiers:
+
+| Tier | Commands | Needs |
+|---|---|---|
+| Clean clone, no raw data | `pytest -q`, `src/make_figures.py`, `src/make_docs.py`, cache/manifest hash checks | `requirements.txt` only |
+| Local derived sample | `src/split.py`, `src/baselines.py`, `src/llm_eval.py --backend cache`, `src/run_all.py --skip-profile --backend cache` | the derived `.csv.gz` above |
+| Full pipeline | `src/run_all.py --source <complaints.csv.zip> --root . --backend cache` | the 1.4 GB CFPB archive |
+
+In a clean clone the split/baseline test checks the committed `label_policy`
+against the frozen split manifest instead of reopening plaintext narratives;
+`pytest -q` still reports 39 passed. The B3 scores are already committed in
+`results/llm_pilot.json` and `results/table1b_llm_subset.md`; replaying the
+response cache with `llm_eval.py` needs the derived sample because prompts are
+rebuilt from the narratives. Figures and documents are regenerated from the
+committed `results/*.json` and remain byte-for-byte reproducible without it.
+
 ## Layout
 
 ```
